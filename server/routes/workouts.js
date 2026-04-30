@@ -4,7 +4,9 @@ const fs = require('fs');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
-const DATA_FILE = path.join(__dirname, '..', 'data', 'workouts.json');
+const DATA_FILE = process.env.VERCEL 
+  ? path.join('/tmp', 'workouts.json') 
+  : path.join(__dirname, '..', 'data', 'workouts.json');
 
 function readWorkouts() {
   try {

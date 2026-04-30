@@ -3,7 +3,9 @@ const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
-const DATA_FILE = path.join(__dirname, '..', 'data', 'settings.json');
+const DATA_FILE = process.env.VERCEL 
+  ? path.join('/tmp', 'settings.json') 
+  : path.join(__dirname, '..', 'data', 'settings.json');
 
 function readSettings() {
   try {
