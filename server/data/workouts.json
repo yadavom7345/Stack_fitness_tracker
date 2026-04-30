@@ -1,0 +1,128 @@
+[
+  {
+    "id": "9fa7fd12-493d-49b0-9440-ab77dbb8ee28",
+    "name": "chest",
+    "date": "2026-04-08T10:16:32.706Z",
+    "duration": 9,
+    "exercises": [
+      {
+        "id": "bench-press",
+        "name": "Bench Press",
+        "category": "Chest",
+        "sets": [
+          {
+            "weight": 55,
+            "reps": 55,
+            "completed": true
+          }
+        ]
+      }
+    ],
+    "notes": "",
+    "totalVolume": 3025,
+    "totalSets": 1,
+    "exerciseCount": 1
+  },
+  {
+    "id": "0072b9ec-c386-48f5-b32a-afe23cbb6939",
+    "name": "chest ",
+    "date": "2026-04-09T09:07:32.544Z",
+    "duration": 44,
+    "exercises": [
+      {
+        "id": "incline-bench",
+        "name": "Incline Bench Press",
+        "category": "Chest",
+        "sets": [
+          {
+            "weight": 25,
+            "reps": 15,
+            "completed": true
+          },
+          {
+            "weight": 25,
+            "reps": 15,
+            "completed": true
+          },
+          {
+            "weight": 25,
+            "reps": 15,
+            "completed": true
+          }
+        ]
+      },
+      {
+        "id": "dumbbell-fly",
+        "name": "Dumbbell Fly",
+        "category": "Chest",
+        "sets": [
+          {
+            "weight": 30,
+            "reps": 12,
+            "completed": false
+          },
+          {
+            "weight": 30,
+            "reps": 12,
+            "completed": false
+          },
+          {
+            "weight": 30,
+            "reps": 12,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "notes": "",
+    "totalVolume": 1125,
+    "totalSets": 3,
+    "exerciseCount": 2
+  },
+  {
+    "id": "74eb5b87-fb76-4a60-997a-2def23c25990",
+    "name": "chest day",
+    "date": "2026-04-09T09:22:12.515Z",
+    "duration": 37,
+    "exercises": [
+      {
+        "id": "incline-bench",
+        "name": "Incline Bench Press",
+        "category": "Chest",
+        "sets": [
+          {
+            "weight": 20,
+            "reps": 15,
+            "completed": true
+          },
+          {
+            "weight": 20,
+            "reps": 15,
+            "completed": true
+          },
+          {
+            "weight": 20,
+            "reps": 15,
+            "completed": true
+          }
+        ]
+      },
+      {
+        "id": "bench-press",
+        "name": "Bench Press",
+        "category": "Chest",
+        "sets": [
+          {
+            "weight": 43,
+            "reps": 15,
+            "completed": false
+          }
+        ]
+      }
+    ],
+    "notes": "",
+    "totalVolume": 900,
+    "totalSets": 3,
+    "exerciseCount": 2
+  }
+]
