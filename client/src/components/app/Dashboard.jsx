@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { api } from '../../api'
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 
 export default function Dashboard({ switchView, settings }) {
   const [stats, setStats] = useState({ totalWorkouts: 0, totalVolume: 0, totalSets: 0, streak: 0, personalRecords: [] });
@@ -45,6 +46,11 @@ export default function Dashboard({ switchView, settings }) {
 
   const unit = settings.units === 'lbs' ? 'lbs' : 'kg';
 
+  const chartData = [...recentWorkouts].reverse().map(w => ({
+    name: formatDate(w.date),
+    volume: w.totalVolume || 0
+  }));
+
   return (
     <div id="dashboard-view">
       <div className="page-header">
@@ -74,6 +80,24 @@ export default function Dashboard({ switchView, settings }) {
           <div className="stat-sub">personal bests</div>
         </div>
       </div>
+
+      {chartData.length > 0 && (
+        <div className="chart-container" style={{ width: '100%', height: 250, marginTop: '2rem', marginBottom: '2rem' }}>
+          <h3 className="dash-recent-title" style={{ marginBottom: '1rem' }}>Volume Over Time</h3>
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={chartData}>
+              <XAxis dataKey="name" stroke="#888" fontSize={12} tickLine={false} axisLine={false} />
+              <YAxis stroke="#888" fontSize={12} tickLine={false} axisLine={false} tickFormatter={(val) => formatVolume(val)} />
+              <Tooltip 
+                cursor={{ fill: 'rgba(255, 255, 255, 0.05)' }}
+                contentStyle={{ backgroundColor: '#1C1C1E', border: '1px solid #333', borderRadius: '12px' }}
+                itemStyle={{ color: '#E5FF4D' }}
+              />
+              <Bar dataKey="volume" fill="#E5FF4D" radius={[4, 4, 0, 0]} name={`Volume (${unit})`} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       <h3 className="dash-recent-title">Recent Workouts</h3>
 
