@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/landing/Navbar'
 import Hero from '../components/landing/Hero'
+import Features from '../components/landing/Features'
 import Pricing from '../components/landing/Pricing'
 import Contact from '../components/landing/Contact'
 import Footer from '../components/landing/Footer'
@@ -16,6 +17,7 @@ export default function LandingPage() {
     <>
       <Navbar />
       <Hero />
+      <Features />
       <Pricing />
       <Contact showToast={showToast} />
       <Footer />

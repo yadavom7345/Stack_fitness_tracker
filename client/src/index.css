@@ -383,8 +383,118 @@ ul { list-style: none; }
 
 
 /* ═══════════════════════════════════════════════════════
+   FEATURES SECTION
+   ═══════════════════════════════════════════════════════ */
+.features {
+  padding: 120px 0;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.features-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 28px;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--feature-accent, var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.feature-card:hover::before {
+  transform: scaleX(1);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* stagger delays for feature cards */
+.feature-card.fade-in:nth-child(1) { transition-delay: 0s; }
+.feature-card.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.feature-card.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.feature-card.fade-in:nth-child(4) { transition-delay: 0.3s; }
+
+.feature-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius);
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.feature-card:hover .feature-icon-wrap {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: rgba(168, 85, 247, 0.5);
+}
+
+.feature-icon-wrap svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--feature-accent, var(--accent));
+}
+
+.feature-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--feature-accent, var(--accent));
+  margin-bottom: 10px;
+}
+
+.feature-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.feature-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+
+/* ═══════════════════════════════════════════════════════
    PRICING SECTION
    ═══════════════════════════════════════════════════════ */
+
 .pricing {
   padding: 120px 0;
   text-align: center;
@@ -692,11 +802,45 @@ ul { list-style: none; }
 
 
 /* ═══════════════════════════════════════════════════════
+   FOOTER AI BANNER
+   ═══════════════════════════════════════════════════════ */
+.footer-ai-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer-ai-banner strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.footer-ai-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════ */
 
 /* Tablet */
 @media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
@@ -736,11 +880,15 @@ ul { list-style: none; }
   .hero-stats { gap: 20px; }
   .stat-num { font-size: 1.2rem; }
 
+  .features { padding: 80px 0; }
+  .features-grid { grid-template-columns: 1fr; }
+
   .pricing, .contact { padding: 80px 0; }
 
   .contact-form { padding: 28px; }
 
   .footer-inner { flex-direction: column; text-align: center; }
+  .footer-ai-banner { flex-direction: column; gap: 6px; }
 }
 
 /* Small Mobile */
@@ -751,3 +899,4 @@ ul { list-style: none; }
   .stat-divider { width: 80%; height: 1px; }
   .pricing-card { padding: 32px 20px 28px; }
 }
+

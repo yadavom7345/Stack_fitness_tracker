@@ -43,7 +43,7 @@ export default function Navbar() {
         </button>
 
         <ul id="nav-links" className={`nav-links${menuOpen ? ' open' : ''}`}>
-          <li><a href="#pricing" onClick={(e) => scrollTo(e, '#pricing')}>Features</a></li>
+          <li><a href="#features" onClick={(e) => scrollTo(e, '#features')}>Features</a></li>
           <li><a href="#pricing" onClick={(e) => scrollTo(e, '#pricing')}>Pricing</a></li>
           <li><a href="#contact" className="btn btn-sm btn-primary" onClick={(e) => scrollTo(e, '#contact')}>Download App</a></li>
         </ul>
